@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Works log</h1>
+{% for i in news%}
+<table border="1">
+   <h2>Action # {{ i.id }}</h2>
+   <tr>
+    <th>Работа</th>
+    <th>Ответственный</th>
+    <th>Продолжительность</th>
+    <th>Команда</th>
+    <th>Завершенность</th>
+   </tr>
+   <tr><td>{{ i.job }}</td><td>{{ i.team_leader }}</td><td>{{ i.work_size }}</td><td>{{ i.collaborators }}</td><td>{% if i.is_finished %} окончена {% elif i.is_finished != True %} не окончена {% endif %}</td></tr>
+</table>
+{% endfor %}
+{% endblock %}
